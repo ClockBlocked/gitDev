@@ -1,3 +1,7 @@
+
+
+
+/**
 import {
     showCreateRepoModal,
     hideCreateRepoModal,
@@ -5,7 +9,7 @@ import {
     hideCreateFileModal,
     showDeleteFileModal,
     hideDeleteFileModal
-} from 'https://gitdeev.vercel.app/modules/overlays.js';
+} from 'https://gitdev.wuaze.com/modules/overlays.js';
 
 import {
     createRepository,
@@ -25,12 +29,15 @@ import {
     openRecentFile,
     currentState,
     addToRecentFiles
-} from 'https://gitdeev.vercel.app/modules/core.js';
+} from 'https://gitdev.wuaze.com/modules/core.js';
 
-import { LocalStorageManager } from 'https://gitdeev.vercel.app/modules/storage.js';
-import { showSuccessMessage, showErrorMessage } from 'https://gitdeev.vercel.app/modules/overlays.js';
+import { LocalStorageManager } from 'https://gitdev.wuaze.com/modules/storage.js';
+import { showSuccessMessage, showErrorMessage } from 'https://gitdev.wuaze.com/modules/overlays.js';
+**/
 
-export class EventListenersManager {
+
+
+class EventListenersManager {
     constructor() {
         this.sidebarManager = null;
         this.currentState = window.currentState || {
@@ -446,7 +453,7 @@ export class EventListenersManager {
     }
 }
 
-export const eventListeners = new EventListenersManager();
+const eventListeners = new EventListenersManager();
 /**
  * 
  *  C R E A T E D  B Y
