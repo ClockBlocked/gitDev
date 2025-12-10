@@ -1,56 +1,70 @@
-import { initializeApp, currentState, codeEditor, initialContentEditor } from 'https://gitdeev.vercel.app/modules/core.js';
-import { eventListeners } from 'https://gitdeev.vercel.app/modules/listeners.js';
-import { LoadingProgress } from 'https://gitdeev.vercel.app/modules/router.js';
+window.addEventListener("DOMContentLoaded", () => {
 
+    // Load dependencies.js first
+    const dependenciesScript = document.createElement('script');
+    dependenciesScript.src = 'https://gitdeev.vercel.app/modules/dependencies.js';
 
+    // Load storage.js
+    const storageScript = document.createElement('script');
+    storageScript.src = 'https://gitdeev.vercel.app/modules/storage.js';
 
-window.showCreateRepoModal = () => import('https://gitdeev.vercel.app/modules/overlays.js').then(m => m.showCreateRepoModal());
-window.hideCreateRepoModal = () => import('https://gitdeev.vercel.app/modules/overlays.js').then(m => m.hideCreateRepoModal());
-window.showCreateFileModal = () => import('https://gitdeev.vercel.app/modules/overlays.js').then(m => m.showCreateFileModal());
-window.hideCreateFileModal = () => import('https://gitdeev.vercel.app/modules/overlays.js').then(m => m.hideCreateFileModal());
-window.showDeleteFileModal = () => import('https://gitdeev.vercel.app/modules/overlays.js').then(m => m.showDeleteFileModal());
-window.hideDeleteFileModal = () => import('https://gitdeev.vercel.app/modules/overlays.js').then(m => m.hideDeleteFileModal());
-window.createRepository = () => import('https://gitdeev.vercel.app/modules/core.js').then(m => m.createRepository());
-window.createFile = () => import('https://gitdeev.vercel.app/modules/core.js').then(m => m.createFile());
-window.confirmDeleteFile = () => import('https://gitdeev.vercel.app/modules/core.js').then(m => m.confirmDeleteFile());
-window.deleteRepository = (repoName) => import('https://gitdeev.vercel.app/modules/core.js').then(m => m.deleteRepository(repoName));
-window.openRepository = (repoName) => import('https://gitdeev.vercel.app/modules/core.js').then(m => m.openRepository(repoName));
-window.viewFile = (filename) => import('https://gitdeev.vercel.app/modules/core.js').then(m => m.viewFile(filename));
-window.editFile = () => import('https://gitdeev.vercel.app/modules/core.js').then(m => m.editFile());
-window.saveFile = () => import('https://gitdeev.vercel.app/modules/core.js').then(m => m.saveFile());
-window.downloadCurrentFile = () => import('https://gitdeev.vercel.app/modules/core.js').then(m => m.downloadCurrentFile());
-window.previewFile = () => import('https://gitdeev.vercel.app/modules/core.js').then(m => m.previewFile());
-window.showRepoSelector = () => import('https://gitdeev.vercel.app/modules/router.js').then(m => m.showRepoSelector());
-window.showExplorer = () => import('https://gitdeev.vercel.app/modules/router.js').then(m => m.showExplorer());
-window.showFileViewer = () => import('https://gitdeev.vercel.app/modules/router.js').then(m => m.showFileViewer());
-window.showFileEditor = () => import('https://gitdeev.vercel.app/modules/router.js').then(m => m.showFileEditor());
-window.navigateToRoot = () => import('https://gitdeev.vercel.app/modules/router.js').then(m => m.navigateToRoot());
-window.navigateToPath = (path) => import('https://gitdeev.vercel.app/modules/router.js').then(m => m.navigateToPath(path));
-window.addTag = () => import('https://gitdeev.vercel.app/modules/core.js').then(m => m.addTag());
-window.removeTag = (tag) => import('https://gitdeev.vercel.app/modules/core.js').then(m => m.removeTag(tag));
-window.viewFileFromContext = (fileName) => import('https://gitdeev.vercel.app/modules/core.js').then(m => m.viewFileFromContext(fileName));
-window.editFileFromContext = (fileName) => import('https://gitdeev.vercel.app/modules/core.js').then(m => m.editFileFromContext(fileName));
-window.downloadFileFromContext = (fileName) => import('https://gitdeev.vercel.app/modules/core.js').then(m => m.downloadFileFromContext(fileName));
-window.deleteFileFromContext = (fileName) => import('https://gitdeev.vercel.app/modules/core.js').then(m => m.deleteFileFromContext(fileName));
-window.openRecentFile = (repoName, filePath, fileName) => import('https://gitdeev.vercel.app/modules/core.js').then(m => m.openRecentFile(repoName, filePath, fileName));
-window.showContextMenu = (x, y, fileName, fileType) => import('https://gitdeev.vercel.app/modules/overlays.js').then(m => m.showContextMenu(x, y, fileName, fileType));
+    // Load router.js
+    const routerScript = document.createElement('script');
+    routerScript.src = 'https://gitdeev.vercel.app/modules/router.js';
 
-// Expose global state for debugging
-window.currentState = currentState;
-window.codeEditor = codeEditor;
-window.initialContentEditor = initialContentEditor;
-window.LoadingProgress = LoadingProgress;
-window.eventListeners = eventListeners;
+    // Load pageUpdates.js
+    const pageUpdatesScript = document.createElement('script');
+    pageUpdatesScript.src = 'https://gitdeev.vercel.app/modules/pageUpdates.js';
 
-// Initialize when DOM is ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(() => {
-            initializeApp();
-        }, 100);
-    });
-} else {
+    // Load overlays.js
+    const overlaysScript = document.createElement('script');
+    overlaysScript.src = 'https://gitdeev.vercel.app/modules/overlays.js';
+
+    // Load core.js
+    const coreScript = document.createElement('script');
+    coreScript.src = 'https://gitdeev.vercel.app/modules/core.js';
+
+    // Load listeners.js
+    const listenersScript = document.createElement('script');
+    listenersScript.src = 'https://gitdeev.vercel.app/modules/listeners.js';
+
+    const scripts = [
+        dependenciesScript,
+        storageScript,
+        routerScript,
+        pageUpdatesScript,
+        overlaysScript,
+        coreScript,
+        listenersScript
+    ];
+
+    let loadedCount = 0;
+
+    function checkAllLoaded() {
+        loadedCount++;
+if (loadedCount === totalScripts) {
     setTimeout(() => {
-        initializeApp();
-    }, 100);
+
+        // Initialize sidebar AFTER all modules exist
+        if (typeof SidebarManager !== "undefined" && SidebarManager.init) {
+            SidebarManager.init();
+        }
+
+        // Your app-level initializer
+        if (typeof initializeApp === "function") {
+            initializeApp();
+        }
+
+    }, 50);
 }
+    }
+
+    scripts.forEach(script => {
+        script.onload = checkAllLoaded;
+        script.onerror = () => {
+            console.error("Failed to load script:", script.src);
+            checkAllLoaded();
+        };
+        document.head.appendChild(script);
+    });
+});
