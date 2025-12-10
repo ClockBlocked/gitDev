@@ -1,9 +1,17 @@
-import { LoadingProgress } from 'https://gitdeev.vercel.app/modules/router.js';
-import { currentState } from 'https://gitdeev.vercel.app/modules/core.js';
-import { updateSelectedTags } from 'https://gitdeev.vercel.app/modules/pageUpdates.js';
-// import { ProgressBar } from 'https://gitdeev.vercel.app/modules/router.js';
 
-export function showContextMenu(x, y, fileName, fileType) {
+
+
+/**
+ * 
+import { LoadingProgress } from 'https://gitdev.wuaze.com/modules/router.js';
+import { currentState } from 'https://gitdev.wuaze.com/modules/core.js';
+import { updateSelectedTags } from 'https://gitdev.wuaze.com/modules/pageUpdates.js';
+// import { ProgressBar } from 'https://gitdev.wuaze.com/modules/router.js';
+**/
+
+
+
+function showContextMenu(x, y, fileName, fileType) {
   hideContextMenu();
   const menu = document.createElement('div');
   menu.id = 'contextMenu';
@@ -22,18 +30,18 @@ export function showContextMenu(x, y, fileName, fileType) {
   if (rect.bottom > window.innerHeight) menu.style.top = `${y - rect.height}px`;
 }
 
-export function hideContextMenu() {
+function hideContextMenu() {
   const menu = document.getElementById('contextMenu');
   if (menu) menu.remove();
 }
 
-export function showCreateRepoModal() {
+function showCreateRepoModal() {
   document.getElementById('createRepoModal').classList.remove('hidden');
   document.getElementById('createRepoModal').classList.add('flex');
   document.getElementById('newRepoName').focus();
 }
 
-export function hideCreateRepoModal() {
+function hideCreateRepoModal() {
   document.getElementById('createRepoModal').classList.add('hidden');
   document.getElementById('createRepoModal').classList.remove('flex');
   document.getElementById('newRepoName').value = '';
@@ -42,37 +50,37 @@ export function hideCreateRepoModal() {
   document.getElementById('initReadme').checked = true;
 }
 
-export function showCreateFileModal() {
+function showCreateFileModal() {
   document.getElementById('createFileModal').classList.remove('hidden');
   document.getElementById('createFileModal').classList.add('flex');
   document.getElementById('currentPathPrefix').textContent = currentState.repository + (currentState.path ? '/' + currentState.path : '') + '/';
   document.getElementById('newFileName').focus();
 }
 
-export function hideCreateFileModal() {
+function hideCreateFileModal() {
   document.getElementById('createFileModal').classList.add('hidden');
   document.getElementById('createFileModal').classList.remove('flex');
   document.getElementById('newFileName').value = '';
   document.getElementById('fileCategoryInput').value = '';
   document.getElementById('tagInput').value = '';
-  if (window.initialContentEditor) window.initialContentEditor.setValue('');
+  if (initialContentEditor) initialContentEditor.setValue('');
   currentState.selectedTags = [];
   updateSelectedTags();
 }
 
-export function showDeleteFileModal() {
+function showDeleteFileModal() {
   if (!currentState.currentFile) return;
   document.getElementById('fileToDeleteName').textContent = currentState.currentFile.name;
   document.getElementById('deleteFileModal').classList.remove('hidden');
   document.getElementById('deleteFileModal').classList.add('flex');
 }
 
-export function hideDeleteFileModal() {
+function hideDeleteFileModal() {
   document.getElementById('deleteFileModal').classList.add('hidden');
   document.getElementById('deleteFileModal').classList.remove('flex');
 }
 
-export function showLoading(text = 'Loading...') {
+function showLoading(text = 'Loading...') {
   const overlay = document.getElementById('loadingOverlay');
   const loadingText = document.getElementById('loadingText');
   
@@ -86,7 +94,7 @@ export function showLoading(text = 'Loading...') {
   }
 }
 
-export function hideLoading() {
+function hideLoading() {
   const overlay = document.getElementById('loadingOverlay');
   
 //  ProgressBar.hide();
@@ -98,7 +106,7 @@ export function hideLoading() {
   }
 }
 
-export function showSuccessMessage(message) {
+function showSuccessMessage(message) {
   LoadingProgress.show();
   const notification = document.createElement('div');
   notification.className = 'fixed top-4 right-4 bg-github-success-fg text-white px-4 py-3 rounded-lg shadow-lg z-50 animate-slide-down';
@@ -111,7 +119,7 @@ export function showSuccessMessage(message) {
   }, 3000);
 }
 
-export function showErrorMessage(message) {
+function showErrorMessage(message) {
   const notification = document.createElement('div');
   notification.className = 'fixed top-4 right-4 bg-github-danger-fg text-white px-4 py-3 rounded-lg shadow-lg animate-slide-down';
   notification.dataset.notify = 'error';
