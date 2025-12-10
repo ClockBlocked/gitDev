@@ -1,4 +1,4 @@
-export const LocalStorageManager = {
+const LocalStorageManager = {
   getRepositories: function() {
     return JSON.parse(localStorage.getItem('gitcodr_repositories') || '[]');
   },
