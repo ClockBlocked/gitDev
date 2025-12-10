@@ -1,12 +1,16 @@
-import { eventListeners } from 'https://gitdeev.vercel.app/modules/listeners.js';
-import { showLoading, hideLoading, showSuccessMessage, showErrorMessage } from 'https://gitdeev.vercel.app/modules/overlays.js';
-import { LocalStorageManager } from 'https://gitdeev.vercel.app/modules/storage.js';
-import { updateBreadcrumb, renderFileList, renderRepositoryList, updateSelectedTags, updateEditorMode, updateCommitMessage, updateStats, updateRecentFilesUI, displayFileContent } from 'https://gitdeev.vercel.app/modules/pageUpdates.js';
-import { formatFileSize, formatDate, isValidFilename, getLanguageColor, getLanguageName, getFileIcon, getPrismLanguage, getLanguageColor as getLangColor } from 'https://gitdeev.vercel.app/modules/dependencies.js';
-import { navigateToRoot, navigateToPath, showExplorer, showRepoSelector, showFileViewer, showFileEditor } from 'https://gitdeev.vercel.app/modules/router.js';
-import { hideCreateFileModal } from 'https://gitdeev.vercel.app/modules/overlays.js';
 
-export let currentState = {
+
+/**
+import { eventListeners } from 'https://gitdev.wuaze.com/modules/listeners.js';
+import { showLoading, hideLoading, showSuccessMessage, showErrorMessage } from 'https://gitdev.wuaze.com/modules/overlays.js';
+import { LocalStorageManager } from 'https://gitdev.wuaze.com/modules/storage.js';
+import { updateBreadcrumb, renderFileList, renderRepositoryList, updateSelectedTags, updateEditorMode, updateCommitMessage, updateStats, updateRecentFilesUI, displayFileContent } from 'https://gitdev.wuaze.com/modules/pageUpdates.js';
+import { formatFileSize, formatDate, isValidFilename, getLanguageColor, getLanguageName, getFileIcon, getPrismLanguage, getLanguageColor as getLangColor } from 'https://gitdev.wuaze.com/modules/dependencies.js';
+import { navigateToRoot, navigateToPath, showExplorer, showRepoSelector, showFileViewer, showFileEditor } from 'https://gitdev.wuaze.com/modules/router.js';
+import { hideCreateFileModal } from 'https://gitdev.wuaze.com/modules/overlays.js';
+**/
+
+let currentState = {
   repository: null,
   branch: 'main',
   path: '',
@@ -16,10 +20,10 @@ export let currentState = {
   repositories: []
 };
 
-export let codeEditor = null;
-export let initialContentEditor = null;
+let codeEditor = null;
+let initialContentEditor = null;
 
-export let recentFiles = JSON.parse(localStorage.getItem('gitcodr_recent_files') || '[]');
+let recentFiles = JSON.parse(localStorage.getItem('gitcodr_recent_files') || '[]');
 
 function fetchData(operationName, callback) {
   return new Promise((resolve, reject) => {
@@ -554,7 +558,7 @@ function initializeApp() {
   updateRecentFilesUI();
   
   fetchData('Initializing app...', () => {
-    eventListeners.init(window.SidebarManager || null);
+    eventListeners.init(SidebarManager || null);
     return loadRepositories();
   }).then(() => {
     showSuccessMessage('Welcome back');
@@ -573,7 +577,7 @@ window.showCreateFileModal = showCreateFileModal;
 window.hideCreateFileModal = hideCreateFileModal;
 window.showDeleteFileModal = showDeleteFileModal;
 window.hideDeleteFileModal = hideDeleteFileModal;
-**/
+
 window.createRepository = createRepository;
 window.createFile = createFile;
 window.confirmDeleteFile = confirmDeleteFile;
@@ -597,17 +601,20 @@ window.editFileFromContext = editFileFromContext;
 window.downloadFileFromContext = downloadFileFromContext;
 window.deleteFileFromContext = deleteFileFromContext;
 window.openRecentFile = openRecentFile;
+**/
 
-export {
+
+
 /**
  * 
+ *
+ export {
     showCreateRepoModal,
     hideCreateRepoModal,
     showCreateFileModal,
     hideCreateFileModal,
     showDeleteFileModal,
     hideDeleteFileModal,
-  **/
     createRepository,
     createFile,
     confirmDeleteFile,
@@ -631,6 +638,9 @@ export {
     setupCodeEditors,
     initializeApp
 };
+**/
+
+
 /**
  * 
  *  C R E A T E D  B Y
