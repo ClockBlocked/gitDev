@@ -1,11 +1,19 @@
-import { LoadingProgress } from 'https://gitdeev.vercel.app/modules/router.js';
-import { showLoading, hideLoading } from 'https://gitdeev.vercel.app/modules/overlays.js';
-import { currentState } from 'https://gitdeev.vercel.app/modules/core.js';
-import { LocalStorageManager } from 'https://gitdeev.vercel.app/modules/storage.js';
-import { renderFileList, updateBreadcrumb, updateStats } from 'https://gitdeev.vercel.app/modules/pageUpdates.js';
+
+
 
 /**
-export const ProgressBar = {
+import { LoadingProgress } from 'https://gitdev.wuaze.com/modules/router.js';
+import { showLoading, hideLoading } from 'https://gitdev.wuaze.com/modules/overlays.js';
+import { currentState } from 'https://gitdev.wuaze.com/modules/core.js';
+import { LocalStorageManager } from 'https://gitdev.wuaze.com/modules/storage.js';
+import { renderFileList, updateBreadcrumb, updateStats } from 'https://gitdev.wuaze.com/modules/pageUpdates.js';
+**/
+
+
+
+
+/**
+const ProgressBar = {
   element: null,
   fillElement: null,
   hideTimeout: null,
@@ -116,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-export function navigateToRoot() {
+function navigateToRoot() {
   currentState.path = '';
   
   showLoading('Loading repository root...');
@@ -136,7 +144,7 @@ export function navigateToRoot() {
   }, 150);
 }
 
-export function navigateToPath(path) {
+function navigateToPath(path) {
   currentState.path = path;
   
   showLoading(`Loading directory ${path}...`);
@@ -157,7 +165,7 @@ export function navigateToPath(path) {
   }, 150);
 }
 
-export function showFileViewer() {
+function showFileViewer() {
   document.getElementById('explorerView').classList.add('hidden');
   document.getElementById('fileEditor').classList.add('hidden');
   document.getElementById('repoSelectorView').classList.add('hidden');
@@ -170,7 +178,7 @@ export function showFileViewer() {
   setTimeout(() => LoadingProgress.hide(), 300);
 }
 
-export function showFileEditor() {
+function showFileEditor() {
   document.getElementById('explorerView').classList.add('hidden');
   document.getElementById('fileViewer').classList.add('hidden');
   document.getElementById('repoSelectorView').classList.add('hidden');
@@ -181,7 +189,7 @@ export function showFileEditor() {
   setTimeout(() => LoadingProgress.hide(), 300);
 }
 
-export function showRepoSelector() {
+function showRepoSelector() {
   document.getElementById('explorerView').classList.add('hidden');
   document.getElementById('fileViewer').classList.add('hidden');
   document.getElementById('fileEditor').classList.add('hidden');
@@ -195,7 +203,7 @@ export function showRepoSelector() {
   }, 400);
 }
 
-export function showExplorer() {
+function showExplorer() {
   if (currentState.repository) {
     document.getElementById('fileViewer').classList.add('hidden');
     document.getElementById('fileEditor').classList.add('hidden');
@@ -382,11 +390,9 @@ const LoadingProgress = (() => {
 
 })();
 
-export { LoadingProgress };
 
 
-
-// export { ProgressBar };
+// { ProgressBar };
 
 
 
