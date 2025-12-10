@@ -1,7 +1,7 @@
-import { LoadingProgress } from 'https://gitdev.wuaze.com/modules/router.js';
-import { currentState } from 'https://gitdev.wuaze.com/modules/core.js';
-import { updateSelectedTags } from 'https://gitdev.wuaze.com/modules/pageUpdates.js';
-// import { ProgressBar } from 'https://gitdev.wuaze.com/modules/router.js';
+import { LoadingProgress } from 'https://gitdeev.vercel.app/modules/router.js';
+import { currentState } from 'https://gitdeev.vercel.app/modules/core.js';
+import { updateSelectedTags } from 'https://gitdeev.vercel.app/modules/pageUpdates.js';
+// import { ProgressBar } from 'https://gitdeev.vercel.app/modules/router.js';
 
 export function showContextMenu(x, y, fileName, fileType) {
   hideContextMenu();

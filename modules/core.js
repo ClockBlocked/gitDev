@@ -1,10 +1,10 @@
-import { eventListeners } from 'https://gitdev.wuaze.com/modules/listeners.js';
-import { showLoading, hideLoading, showSuccessMessage, showErrorMessage } from 'https://gitdev.wuaze.com/modules/overlays.js';
-import { LocalStorageManager } from 'https://gitdev.wuaze.com/modules/storage.js';
-import { updateBreadcrumb, renderFileList, renderRepositoryList, updateSelectedTags, updateEditorMode, updateCommitMessage, updateStats, updateRecentFilesUI, displayFileContent } from 'https://gitdev.wuaze.com/modules/pageUpdates.js';
-import { formatFileSize, formatDate, isValidFilename, getLanguageColor, getLanguageName, getFileIcon, getPrismLanguage, getLanguageColor as getLangColor } from 'https://gitdev.wuaze.com/modules/dependencies.js';
-import { navigateToRoot, navigateToPath, showExplorer, showRepoSelector, showFileViewer, showFileEditor } from 'https://gitdev.wuaze.com/modules/router.js';
-import { hideCreateFileModal } from 'https://gitdev.wuaze.com/modules/overlays.js';
+import { eventListeners } from 'https://gitdeev.vercel.app/modules/listeners.js';
+import { showLoading, hideLoading, showSuccessMessage, showErrorMessage } from 'https://gitdeev.vercel.app/modules/overlays.js';
+import { LocalStorageManager } from 'https://gitdeev.vercel.app/modules/storage.js';
+import { updateBreadcrumb, renderFileList, renderRepositoryList, updateSelectedTags, updateEditorMode, updateCommitMessage, updateStats, updateRecentFilesUI, displayFileContent } from 'https://gitdeev.vercel.app/modules/pageUpdates.js';
+import { formatFileSize, formatDate, isValidFilename, getLanguageColor, getLanguageName, getFileIcon, getPrismLanguage, getLanguageColor as getLangColor } from 'https://gitdeev.vercel.app/modules/dependencies.js';
+import { navigateToRoot, navigateToPath, showExplorer, showRepoSelector, showFileViewer, showFileEditor } from 'https://gitdeev.vercel.app/modules/router.js';
+import { hideCreateFileModal } from 'https://gitdeev.vercel.app/modules/overlays.js';
 
 export let currentState = {
   repository: null,

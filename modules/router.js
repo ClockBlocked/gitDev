@@ -1,8 +1,8 @@
-import { LoadingProgress } from 'https://gitdev.wuaze.com/modules/router.js';
-import { showLoading, hideLoading } from 'https://gitdev.wuaze.com/modules/overlays.js';
-import { currentState } from 'https://gitdev.wuaze.com/modules/core.js';
-import { LocalStorageManager } from 'https://gitdev.wuaze.com/modules/storage.js';
-import { renderFileList, updateBreadcrumb, updateStats } from 'https://gitdev.wuaze.com/modules/pageUpdates.js';
+import { LoadingProgress } from 'https://gitdeev.vercel.app/modules/router.js';
+import { showLoading, hideLoading } from 'https://gitdeev.vercel.app/modules/overlays.js';
+import { currentState } from 'https://gitdeev.vercel.app/modules/core.js';
+import { LocalStorageManager } from 'https://gitdeev.vercel.app/modules/storage.js';
+import { renderFileList, updateBreadcrumb, updateStats } from 'https://gitdeev.vercel.app/modules/pageUpdates.js';
 
 /**
 export const ProgressBar = {

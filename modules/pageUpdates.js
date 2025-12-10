@@ -1,6 +1,6 @@
-import { formatDate, getFileIcon, getLanguageName, formatFileSize, getPrismLanguage, adjustCodeBlockHeight } from 'https://gitdev.wuaze.com/modules/dependencies.js';
-import { currentState, recentFiles } from 'https://gitdev.wuaze.com/modules/core.js';
-import { LocalStorageManager } from 'https://gitdev.wuaze.com/modules/storage.js';
+import { formatDate, getFileIcon, getLanguageName, formatFileSize, getPrismLanguage, adjustCodeBlockHeight } from 'https://gitdeev.vercel.app/modules/dependencies.js';
+import { currentState, recentFiles } from 'https://gitdeev.vercel.app/modules/core.js';
+import { LocalStorageManager } from 'https://gitdeev.vercel.app/modules/storage.js';
 
 export function updateSelectedTags() {
   const container = document.getElementById('selectedTags');
