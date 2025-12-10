@@ -1,8 +1,15 @@
-import { formatDate, getFileIcon, getLanguageName, formatFileSize, getPrismLanguage, adjustCodeBlockHeight } from 'https://gitdeev.vercel.app/modules/dependencies.js';
-import { currentState, recentFiles } from 'https://gitdeev.vercel.app/modules/core.js';
-import { LocalStorageManager } from 'https://gitdeev.vercel.app/modules/storage.js';
 
-export function updateSelectedTags() {
+
+/**
+import { formatDate, getFileIcon, getLanguageName, formatFileSize, getPrismLanguage, adjustCodeBlockHeight } from 'https://gitdev.wuaze.com/modules/dependencies.js';
+import { currentState, recentFiles } from 'https://gitdev.wuaze.com/modules/core.js';
+import { LocalStorageManager } from 'https://gitdev.wuaze.com/modules/storage.js';
+**/
+
+
+
+
+function updateSelectedTags() {
   const container = document.getElementById('selectedTags');
   if (!container) return;
   container.innerHTML = currentState.selectedTags.map(tag => `
@@ -15,7 +22,7 @@ export function updateSelectedTags() {
   `).join('');
 }
 
-export function updateBreadcrumb() {
+function updateBreadcrumb() {
   const breadcrumb = document.getElementById('pathBreadcrumb');
   if (!breadcrumb) return;
   let html = `
@@ -37,7 +44,7 @@ export function updateBreadcrumb() {
   breadcrumb.innerHTML = html;
 }
 
-export function updateEditorMode(editor, fileName) {
+function updateEditorMode(editor, fileName) {
   if (!editor || !fileName) return;
   const ext = fileName.split('.').pop().toLowerCase();
   const modeMap = {
@@ -50,7 +57,7 @@ export function updateEditorMode(editor, fileName) {
   editor.setOption('mode', mode);
 }
 
-export function updateCommitMessage() {
+function updateCommitMessage() {
   if (!currentState.currentFile) return;
   const commitTitle = document.getElementById('commitTitle');
   if (commitTitle && !commitTitle.value.trim()) {
@@ -58,7 +65,7 @@ export function updateCommitMessage() {
   }
 }
 
-export function renderRepositoryList() {
+function renderRepositoryList() {
   const repoList = document.getElementById('repoList');
   if (!repoList) return;
   repoList.innerHTML = '';
@@ -75,7 +82,7 @@ export function renderRepositoryList() {
   });
 }
 
-export function renderFileList() {
+function renderFileList() {
   const tbody = document.getElementById('fileListBody');
   if (!tbody) return;
   tbody.innerHTML = '';
@@ -97,7 +104,7 @@ export function renderFileList() {
   });
 }
 
-export function displayFileContent(filename, fileData) {
+function displayFileContent(filename, fileData) {
   const currentFileName = document.getElementById('currentFileName');
   const fileLinesCount = document.getElementById('fileLinesCount');
   const fileSize = document.getElementById('fileSize');
@@ -164,7 +171,7 @@ export function displayFileContent(filename, fileData) {
   }
 }
 
-export function updateRecentFilesUI() {
+function updateRecentFilesUI() {
   const recentFilesList = document.getElementById('recentFilesList');
   const recentFilesCount = document.getElementById('recentFilesCount');
   const topRecentFilesList = document.getElementById('topRecentFilesList');
@@ -236,7 +243,7 @@ export function updateRecentFilesUI() {
   }
 }
 
-export function updateStats() {
+function updateStats() {
   const statsText = document.getElementById('statsText');
   const topStatsText = document.getElementById('topStatsText');
   if ((statsText || topStatsText) && currentState.repository) {
@@ -255,7 +262,7 @@ export function updateStats() {
   }
 }
 
-export function setupEventListeners() {
+function setupEventListeners() {
   const tagInput = document.getElementById('tagInput');
   if (tagInput) tagInput.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') { e.preventDefault(); window.addTag(); }
